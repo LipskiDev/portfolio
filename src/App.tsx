@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function App() {
   const featuredProjects = [
@@ -123,59 +124,48 @@ export default function App() {
             <div className="mt-6 h-px w-full bg-white/10" />
           </div>
 
-          <div className="mt-12 space-y-20">
-            {featuredProjects.map((project) => (
-              <article
-                key={project.title}
-                className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14"
-              >
-                <div>
-                  <div className="aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-stone-900 to-black p-4">
-                    <div className="flex h-full items-end rounded-[1.5rem] border border-dashed border-white/10 bg-white/[0.02] p-5">
-                      <p className="text-sm text-stone-500">
-                        Add a polished screenshot, short clip, or technical visual here.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+  {featuredProjects.map((project) => (
+    <Link
+      key={project.title}
+      to={`/projects/${project.title
+        .toLowerCase()
+        .replace(/\s+/g, "-")}`}
+      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/[0.05]"
+    >
+      <div className="aspect-[16/10] flex items-center justify-center border-b border-white/10 bg-stone-900">
+        <span className="text-stone-500">
+          Screenshot goes here
+        </span>
+      </div>
 
-                <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-                    {project.category}
-                  </p>
-                  <h3 className="mt-3 text-3xl font-semibold tracking-tight">
-                    {project.title}
-                  </h3>
-                  <p className="mt-3 text-lg text-stone-200">{project.tagline}</p>
-                  <p className="mt-6 text-base leading-8 text-stone-300">
-                    {project.description}
-                  </p>
+      <div className="p-6">
+        <p className="text-xs uppercase tracking-[0.24em] text-stone-500">
+          {project.category}
+        </p>
 
-                  <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                    {project.info.map(([label, value]) => (
-                      <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.02] p-4">
-                        <p className="text-xs uppercase tracking-[0.24em] text-stone-500">
-                          {label}
-                        </p>
-                        <p className="mt-3 text-sm leading-7 text-stone-300">{value}</p>
-                      </div>
-                    ))}
-                  </div>
+        <h3 className="mt-2 text-2xl font-semibold">
+          {project.title}
+        </h3>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+        <p className="mt-3 text-stone-300">
+          {project.tagline}
+        </p>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-300"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
         </section>
 
         <section id="resume" className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
