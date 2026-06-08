@@ -51,31 +51,6 @@ function RenderPassNode({
   );
 }
 
-function TimelineItem({
-  index,
-  title,
-  body,
-}: {
-  index: string;
-  title: string;
-  body: string;
-}) {
-  return (
-    <div className="relative grid gap-4 md:grid-cols-[8rem_1fr]">
-      <div className="flex items-start gap-4">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-sm font-semibold text-white">
-          {index}
-        </div>
-        <div className="hidden h-full w-px bg-white/10 md:block" />
-      </div>
-
-      <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 transition hover:border-white/20 hover:bg-white/[0.04]">
-        <h3 className="text-xl font-semibold">{title}</h3>
-        <p className="mt-3 leading-7 text-stone-300">{body}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function Rodan() {
   const tags = [
@@ -112,33 +87,6 @@ export default function Rodan() {
     {
       title: "Debug Tooling",
       body: "Dear ImGui integration, debug visualization, RenderDoc and Nsight Graphics workflows.",
-    },
-  ];
-
-  const roadmap = [
-    {
-      title: "Point & Spot Lights",
-      body: "Extend the current lighting system beyond directional lighting.",
-    },
-    {
-      title: "Cascaded Shadow Maps",
-      body: "Improve large-scene directional shadows with multiple cascades.",
-    },
-    {
-      title: "SSAO",
-      body: "Add screen-space ambient occlusion for stronger contact shadows and depth perception.",
-    },
-    {
-      title: "Bloom",
-      body: "Add a post-processing bloom pass for HDR highlights.",
-    },
-    {
-      title: "Frame Graph",
-      body: "Replace manual pass ordering with explicit resource and dependency tracking.",
-    },
-    {
-      title: "GPU-driven Rendering",
-      body: "Move toward GPU-side visibility, culling, and indirect draw submission.",
     },
   ];
 
