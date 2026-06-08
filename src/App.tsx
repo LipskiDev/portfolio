@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import abeautifulgameImage from "./assets/abeautifulgame.png";
-import dragonImage from "./assets/dragon_attenuation.png";
 import sponzaImage from "./assets/sponza.png";
 import fsImage from "./assets/fs.png";
 import psfImage from "./assets/psf.png"
