@@ -205,6 +205,7 @@ export default function App() {
 
             <a
               href="/cv.pdf"
+              download="CV_Maximilian_Lipski.pdf"
               className="mt-8 inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
             >
               Download CV
