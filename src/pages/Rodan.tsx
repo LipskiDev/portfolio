@@ -246,6 +246,13 @@ export default function Rodan() {
           </div>
         </section>
 
+
+
+        <section className="mt-24">
+          <h2 className="text-3xl font-semibold tracking-tight">
+            Future Work
+          </h2>
+
 <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
   {[
     "Point & spot lights",
@@ -263,6 +270,7 @@ export default function Rodan() {
     </div>
   ))}
 </div>
+</section>
       </div>
     </main>
   );
