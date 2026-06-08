@@ -1,45 +1,36 @@
 import { Link } from "react-router-dom";
 
+import abeautifulgameImage from "./assets/abeautifulgame.png";
+import dragonImage from "./assets/dragon_attenuation.png";
+import sponzaImage from "./assets/sponza.png";
+import fsImage from "./assets/fs.png";
+import psfImage from "./assets/psf.png"
+
 export default function App() {
   const featuredProjects = [
     {
       title: "Rodan",
+      image: abeautifulgameImage,
       category: "Render Engine",
       tagline: "A renderer and runtime layer built on top of my Vulkan RHI.",
-      description:
-        "Rodan is my render engine layer focused on practical real-time rendering, tooling, and runtime architecture. It owns the application lifecycle, input, windowing, camera systems, debug rendering, model loading, and ImGui integration, while Velos handles the lower-level graphics abstraction.",
-      info: [
-        ["Focus", "Engine architecture, rendering workflow, tooling"],
-        ["Stack", "C++23, Vulkan, GLFW, ImGui, Assimp, GLM"],
-        ["Highlights", "Model rendering, skybox, debug lines, FPS graph, camera, resizing"],
-      ],
       tags: ["C++", "Vulkan", "ImGui", "Rendering Engine"],
+      route: "/projects/rodan",
     },
     {
       title: "Velos",
+      image: fsImage,
       category: "Vulkan RHI",
       tagline: "A modern explicit rendering abstraction with a Vulkan backend.",
-      description:
-        "Velos is my low-level rendering hardware interface. It is designed around explicit resource management, command recording, dynamic rendering, shader reflection, pipeline creation, descriptors, buffers, and images. The long-term goal is an API-agnostic foundation for engine work and graphics experiments.",
-      info: [
-        ["Focus", "Low-level graphics abstraction and API design"],
-        ["Stack", "C++23, Vulkan, Volk, VMA, shaderc, SPIRV-Reflect"],
-        ["Highlights", "Dynamic rendering, descriptors, image uploads, depth, swapchain, handles-based API"],
-      ],
       tags: ["C++23", "Vulkan", "Shader Reflection", "RHI"],
+      route: "/projects/velos",
     },
     {
       title: "Procedural Shader Framework",
+      image: psfImage,
       category: "Unreal Engine",
       tagline: "A framework for procedural, ShaderToy-like workflows in Unreal.",
-      description:
-        "An Unreal Engine graphics project focused on building reusable procedural shader functionality and authoring workflows. The goal is to create a framework for composing shader-driven visuals in a more modular and experimentation-friendly way.",
-      info: [
-        ["Focus", "Procedural materials and shader experimentation"],
-        ["Stack", "Unreal Engine, HLSL, Material/Shading workflows"],
-        ["Highlights", "Reusable shader building blocks, procedural effects, graphics prototyping"],
-      ],
       tags: ["Unreal Engine", "Shaders", "Procedural Graphics"],
+      route: "/projects/procedural-shader-framework",
     },
   ];
 
@@ -59,32 +50,56 @@ export default function App() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100">
       <div className="mx-auto max-w-6xl px-6 py-8 md:px-10 lg:px-12">
-        <header className="mb-20 flex flex-col gap-6 border-b border-white/10 pb-8 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-stone-500">
-              Maximilian Lipski
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-              Graphics Programmer
-            </h1>
+        <header className="mb-20 border-b border-white/10 pb-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.28em] text-stone-500">
+                Maximilian Lipski
+              </p>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
+                Graphics Programmer
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-300">
+                Building rendering technology, graphics APIs, and real-time engine systems.
+              </p>
+            </div>
+
+            <nav className="flex flex-wrap gap-5 pt-1 text-sm text-stone-300 md:pt-2">
+              <a href="#about" className="transition hover:text-white">About</a>
+              <a href="#projects" className="transition hover:text-white">Projects</a>
+              <a href="#resume" className="transition hover:text-white">CV</a>
+              <a href="#contact" className="transition hover:text-white">Contact</a>
+              <a href="#competencies" className="transition hover:text-white">Competencies</a>
+            </nav>
           </div>
-          <nav className="flex flex-wrap gap-5 text-sm text-stone-300">
-            <a href="#about" className="transition hover:text-white">About</a>
-            <a href="#projects" className="transition hover:text-white">Projects</a>
-            <a href="#resume" className="transition hover:text-white">Resume</a>
-            <a href="#contact" className="transition hover:text-white">Contact</a>
-            <a href="#competencies" className="transition hover:text-white">Competencies</a>
-          </nav>
         </header>
 
-        <section id="about" className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-stone-800 via-stone-900 to-black p-6">
-              <div className="flex h-full items-end rounded-[1.5rem] border border-dashed border-white/10 bg-black/20 p-6">
-                <p className="max-w-xs text-sm leading-7 text-stone-400">
-                  Portrait / render / project visual placeholder.
-                  Replace this with a strong photo or a polished engine screenshot.
-                </p>
+        <section id="about" className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-4">
+            <div className="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10">
+              <img
+                src={sponzaImage}
+                alt="Sponza render"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 gap-3 text-sm md:grid-cols-4">
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                <p className="text-stone-500">Focus</p>
+                <p className="mt-2 text-white">Real-time Rendering</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                <p className="text-stone-500">API</p>
+                <p className="mt-2 text-white">Vulkan</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                <p className="text-stone-500">Language</p>
+                <p className="mt-2 text-white">C++23</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                <p className="text-stone-500">Tools</p>
+                <p className="mt-2 text-white">Nsight / RenderDoc</p>
               </div>
             </div>
           </div>
@@ -94,23 +109,21 @@ export default function App() {
               About me
             </h2>
             <div className="mt-6 h-px w-full bg-white/10" />
+
             <div className="mt-8 space-y-6 text-base leading-8 text-stone-300 md:text-lg">
               <p>
-                I am a computer science master’s student focused on computer
-                graphics, game technology, and rendering systems. I am especially
-                interested in low-level graphics programming, engine architecture,
-                and real-time rendering.
+                I am a computer science master’s student specializing in computer
+                graphics, rendering systems, and game technology.
               </p>
               <p>
-                Most of my work is centered around building graphics technology from
-                scratch: designing APIs, implementing rendering abstractions,
-                integrating tools, and developing practical rendering features that
-                improve both understanding and presentation quality.
+                I build graphics technology from scratch, focusing on Vulkan,
+                rendering architecture, shader workflows, debugging, profiling,
+                and engine development.
               </p>
               <p>
-                This portfolio showcases the projects I am building to grow as a
-                graphics engineer, with a strong focus on Vulkan, engine systems,
-                shader workflows, and technical clarity.
+                I am especially interested in rendering systems and shader techniques
+                that enable a game’s intended visual style, whether physically based
+                or stylized.
               </p>
             </div>
           </div>
@@ -125,90 +138,78 @@ export default function App() {
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-  {featuredProjects.map((project) => (
-    <Link
-      key={project.title}
-      to={`/projects/${project.title
-        .toLowerCase()
-        .replace(/\s+/g, "-")}`}
-      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/[0.05]"
-    >
-      <div className="aspect-[16/10] flex items-center justify-center border-b border-white/10 bg-stone-900">
-        <span className="text-stone-500">
-          Screenshot goes here
-        </span>
-      </div>
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.title}
+                to={project.route}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/[0.05]"
+              >
+                <div className="aspect-[16/10] overflow-hidden border-b border-white/10 bg-stone-900">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-      <div className="p-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-stone-500">
-          {project.category}
-        </p>
+                <div className="p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-stone-500">
+                    {project.category}
+                  </p>
 
-        <h3 className="mt-2 text-2xl font-semibold">
-          {project.title}
-        </h3>
+                  <h3 className="mt-2 text-2xl font-semibold">
+                    {project.title}
+                  </h3>
 
-        <p className="mt-3 text-stone-300">
-          {project.tagline}
-        </p>
+                  <p className="mt-3 text-stone-300">
+                    {project.tagline}
+                  </p>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="mt-6 text-sm text-stone-500 transition group-hover:text-white">
+                    View project →
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section id="resume" className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Resume
+              CV
             </h2>
             <div className="mt-6 h-px w-full bg-white/10" />
           </div>
+
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8">
-            <div className="space-y-8 text-stone-300">
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-                  Education
-                </p>
-                <p className="mt-3 text-lg text-white">
-                  M.Sc. Computer Science
-                </p>
-                <p className="mt-2 leading-8">
-                  Focus on programming-related topics with strong interest in
-                  computer graphics, rendering, and game development.
-                </p>
-              </div>
+            <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
+              Education
+            </p>
+            <p className="mt-3 text-lg text-white">
+              M.Sc. Computer Science
+            </p>
+            <p className="mt-2 leading-8 text-stone-300">
+              Focused on computer graphics, rendering, engine systems, and GPU programming.
+            </p>
 
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-                  Interests
-                </p>
-                <p className="mt-3 leading-8">
-                  Rendering engineering, graphics programming, engine systems,
-                  shader development, real-time rendering, and technical R&D.
-                </p>
-              </div>
-
-              <div>
-                <a
-                  href="#contact"
-                  className="inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
-                >
-                  Request full CV
-                </a>
-              </div>
-            </div>
+            <a
+              href="/cv.pdf"
+              className="mt-8 inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
+            >
+              Download CV
+            </a>
           </div>
         </section>
 
@@ -233,9 +234,11 @@ export default function App() {
           <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
             Contact me
           </p>
+
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
             Let’s talk about graphics programming.
           </h2>
+
           <p className="mt-6 max-w-2xl text-base leading-8 text-stone-300">
             I am interested in graphics programming, rendering engineering, and
             engine development opportunities.
@@ -253,6 +256,10 @@ export default function App() {
             </a>
           </div>
         </section>
+
+        <footer className="mt-20 border-t border-white/10 py-8 text-sm text-stone-500">
+          <p>© {new Date().getFullYear()} Maximilian Lipski</p>
+        </footer>
       </div>
     </div>
   );
