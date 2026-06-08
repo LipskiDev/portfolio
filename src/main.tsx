@@ -7,11 +7,14 @@ import Rodan from "./pages/Rodan";
 import Velos from "./pages/velos";
 import ProceduralShaderFramework from "./pages/ProceduralShaderFramework";
 
+import ScrollToTop from "./ScrollToTop";
+
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/projects/rodan" element={<Rodan />} />
