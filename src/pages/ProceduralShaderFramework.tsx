@@ -262,8 +262,8 @@ export default function ProceduralShaderFramework() {
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-4">
             <div className="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
               <img
-                src={car}
-                alt="Procedural shader car"
+                src={psfImage}
+                alt="Procedural shader framework"
                 className="h-full w-full object-cover"
               />
             </div>
