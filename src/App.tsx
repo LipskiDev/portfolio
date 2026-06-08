@@ -203,13 +203,24 @@ export default function App() {
               Focused on computer graphics, rendering, engine systems, and GPU programming.
             </p>
 
-            <a
-              href="/cv.pdf"
-              download="CV_Maximilian_Lipski.pdf"
-              className="mt-8 inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
-            >
-              Download CV
-            </a>
+<div className="mt-8 flex flex-wrap gap-3">
+  <a
+    href="/CV_Maximilian_Lipski.pdf"
+    target="_blank"
+    rel="noreferrer"
+    className="inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
+  >
+    View CV
+  </a>
+
+  <a
+    href="/CV_Maximilian_Lipski.pdf"
+    download="CV_Maximilian_Lipski.pdf"
+    className="inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
+  >
+    Download CV
+  </a>
+</div>
           </div>
         </section>
 
