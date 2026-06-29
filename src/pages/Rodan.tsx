@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import sponzaImage from "../assets/sponza.png";
 import chessImage from "../assets/abeautifulgame.png";
+import renderVideo from "../assets/render.mp4";
 
 function Tag({ children }: { children: string }) {
   return (
@@ -144,11 +145,16 @@ export default function Rodan() {
 
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-4">
             <div className="aspect-[16/9] overflow-hidden rounded-[1.5rem] border border-white/10">
-              <img
-                src={sponzaImage}
-                alt="Rodan Sponza scene"
+              <video
                 className="h-full w-full object-cover"
-              />
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source src={renderVideo} type="video/mp4" />
+              </video>
             </div>
           </div>
         </section>

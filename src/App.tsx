@@ -47,7 +47,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100">
+    <div className="min-h-screen bg-[#04120d] text-stone-100">
       <div className="mx-auto max-w-6xl px-6 py-8 md:px-10 lg:px-12">
         <header className="mb-20 border-b border-white/10 pb-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
