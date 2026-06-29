@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import sponzaImage from "../assets/sponza.png";
 import chessImage from "../assets/abeautifulgame.png";
-import renderVideo from "../assets/render.mp4";
+import renderVideo from "../assets/render-web.mp4";
 
 function Tag({ children }: { children: string }) {
   return (
