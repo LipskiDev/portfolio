@@ -111,16 +111,15 @@ export default function App() {
 
             <div className="mt-8 space-y-6 text-base leading-8 text-stone-300 md:text-lg">
               <p>
-                I am a computer science master’s student specializing in computer
-                graphics, rendering systems, and game technology.
+                Computer Science master's student specializing in computer graphics, rendering systems, and game technology.
               </p>
               <p>
-                I build graphics technology from scratch, focusing on Vulkan,
+                Building graphics technology from scratch, focusing on Vulkan,
                 rendering architecture, shader workflows, debugging, profiling,
                 and engine development.
               </p>
               <p>
-                I am especially interested in rendering systems and shader techniques
+                Particularly interested in rendering systems and shader techniques
                 that enable a game’s intended visual style, whether physically based
                 or stylized.
               </p>
