@@ -20,7 +20,7 @@ export default function App() {
       image: fsImage,
       category: "Vulkan RHI",
       tagline: "A modern explicit rendering abstraction with a Vulkan backend.",
-      tags: ["C++23", "Vulkan", "Shader Reflection", "RHI"],
+      tags: ["C++20", "Vulkan", "Shader Reflection", "RHI"],
       route: "/projects/velos",
     },
     {
@@ -94,7 +94,7 @@ export default function App() {
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                 <p className="text-stone-500">Language</p>
-                <p className="mt-2 text-white">C++23</p>
+                <p className="mt-2 text-white">C++20</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                 <p className="text-stone-500">Tools</p>
