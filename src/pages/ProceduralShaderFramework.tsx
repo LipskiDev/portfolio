@@ -229,9 +229,7 @@ export default function ProceduralShaderFramework() {
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-300">
               A ShaderToy-inspired procedural shader framework implemented in
               Unreal Engine as part of a university software engineering
-              project. My work focused on the Unreal Engine integration,
-              raymarching pipeline, SDF utilities, lighting models, and reusable
-              shader building blocks.
+              project. My work focused on the Unreal Engine integration, while other groups focused on finding reusable shader building blocks from platforms like shadertoy.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -401,8 +399,7 @@ export default function ProceduralShaderFramework() {
               Other teams worked on implementations for{" "}
               <span className="font-semibold text-white">Unity</span> and{" "}
               <span className="font-semibold text-white">Godot</span>, while
-              another team developed tooling to automatically extract and adapt
-              code snippets from{" "}
+              another team searched for reusable shader building blocks on platforms like {" "}
               <span className="font-semibold text-white">ShaderToy</span> for
               use within the framework.
             </p>

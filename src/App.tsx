@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 import abeautifulgameImage from "./assets/abeautifulgame.png";
 import sponzaImage from "./assets/sponza.png";
-import fsImage from "./assets/fs.png";
-import psfImage from "./assets/psf.png"
+import psfImage from "./assets/psf.png";
+import velosTestsImage from "./assets/velos tests.png";
 
 export default function App() {
   const featuredProjects = [
@@ -11,13 +11,13 @@ export default function App() {
       title: "Rodan",
       image: abeautifulgameImage,
       category: "Render Engine",
-      tagline: "A renderer and runtime layer built on top of my Vulkan RHI.",
+      tagline: "A renderer and runtime layer built on top of my custom RHI.",
       tags: ["C++", "Vulkan", "ImGui", "Rendering Engine"],
       route: "/projects/rodan",
     },
     {
       title: "Velos",
-      image: fsImage,
+      image: velosTestsImage,
       category: "Vulkan RHI",
       tagline: "A modern explicit rendering abstraction with a Vulkan backend.",
       tags: ["C++20", "Vulkan", "Shader Reflection", "RHI"],
@@ -125,6 +125,30 @@ export default function App() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
+              Current work
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+              Rendering of transparent lines using hardware-accelerated linear swept sphere primitives
+            </h2>
+          </div>
+
+          <Link
+            to="/projects/master-thesis"
+            className="group rounded-[2rem] border border-emerald-400/15 bg-emerald-400/[0.04] p-8 transition hover:-translate-y-1 hover:border-emerald-300/30 hover:bg-emerald-400/[0.07]"
+          >
+            <p className="text-lg leading-8 text-stone-200">
+              Master&apos;s thesis investigating transparent-line rendering using
+              hardware-accelerated linear swept sphere ray-tracing primitives in Vulkan.
+            </p>
+            <p className="mt-5 text-sm font-medium text-emerald-300 transition group-hover:text-emerald-200">
+              View thesis work →
+            </p>
+          </Link>
         </section>
 
         <section id="projects" className="mt-24">
@@ -255,7 +279,7 @@ export default function App() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-6 text-base text-stone-200">
-            <a href="mailto:max.lipski@hotmail.com" className="transition hover:text-white">
+            <a href="mailto:lipskidev@outlook.com" className="transition hover:text-white">
               Email
             </a>
             <a href="https://github.com/LipskiDev" className="transition hover:text-white">
