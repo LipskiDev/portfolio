@@ -2,299 +2,107 @@ import { Link } from "react-router-dom";
 
 import abeautifulgameImage from "./assets/abeautifulgame.png";
 import sponzaImage from "./assets/sponza.png";
-import psfImage from "./assets/psf.png";
+import iryvenImage from "./assets/iryven.png";
 import velosTestsImage from "./assets/velos tests.png";
 
+const projects = [
+  { id: "01", title: "Rodan", image: abeautifulgameImage, category: "Render Engine", tagline: "A renderer and runtime layer built on top of my custom RHI.", stack: "C++ · Vulkan · ImGui · Rendering Engine", route: "/projects/rodan" },
+  { id: "02", title: "Velos", image: velosTestsImage, category: "Vulkan RHI", tagline: "A modern explicit rendering abstraction with a Vulkan backend.", stack: "C++20 · Vulkan · Shader Reflection · RHI", route: "/projects/velos" },
+  { id: "03", title: "Iryven", image: iryvenImage, category: "3D Game Engine", tagline: "A C++ engine combining Vulkan meshlet rendering, scene simulation, and editor tooling.", stack: "C++20 · Vulkan · Mesh Shaders · Engine Development", route: "/projects/iryven" },
+];
+
+const competencies = ["C++", "Vulkan", "OpenGL", "GLSL", "Unreal Engine", "Rendering Architecture", "GPU Programming", "Real-Time Rendering", "Debugging & Profiling", "Engine Development"];
+
 export default function App() {
-  const featuredProjects = [
-    {
-      title: "Rodan",
-      image: abeautifulgameImage,
-      category: "Render Engine",
-      tagline: "A renderer and runtime layer built on top of my custom RHI.",
-      tags: ["C++", "Vulkan", "ImGui", "Rendering Engine"],
-      route: "/projects/rodan",
-    },
-    {
-      title: "Velos",
-      image: velosTestsImage,
-      category: "Vulkan RHI",
-      tagline: "A modern explicit rendering abstraction with a Vulkan backend.",
-      tags: ["C++20", "Vulkan", "Shader Reflection", "RHI"],
-      route: "/projects/velos",
-    },
-    {
-      title: "Procedural Shader Framework",
-      image: psfImage,
-      category: "Unreal Engine",
-      tagline: "A framework for procedural, ShaderToy-like workflows in Unreal.",
-      tags: ["Unreal Engine", "Shaders", "Procedural Graphics"],
-      route: "/projects/procedural-shader-framework",
-    },
-  ];
-
-  const competencies = [
-    "C++",
-    "Vulkan",
-    "OpenGL",
-    "GLSL",
-    "Unreal Engine",
-    "Rendering Architecture",
-    "GPU Programming",
-    "Real-Time Rendering",
-    "Debugging & Profiling",
-    "Engine Development",
-  ];
-
   return (
-    <div className="min-h-screen bg-[#04120d] text-stone-100">
-      <div className="mx-auto max-w-6xl px-6 py-8 md:px-10 lg:px-12">
-        <header className="mb-20 border-b border-white/10 pb-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-stone-500">
-                Maximilian Lipski
-              </p>
-              <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-                Graphics Programmer
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-300">
-                Building rendering technology, graphics APIs, and real-time engine systems.
-              </p>
-            </div>
+    <div className="site" id="top">
+      <aside className="rail">
+        <div>
+          <a href="#top" className="rail-name">Maximilian<br />Lipski</a>
+          <p>Graphics Programmer</p>
+        </div>
+        <nav aria-label="Primary navigation">
+          <a href="#work"><span>01</span>Projects</a>
+          <a href="#about"><span>02</span>About</a>
+          <a href="#skills"><span>03</span>Competencies</a>
+          <a href="#contact"><span>04</span>Contact</a>
+        </nav>
+        <div className="rail-links">
+          <a href="/CV_Maximilian_Lipski.pdf" target="_blank" rel="noreferrer">CV ↗</a>
+          <a href="https://github.com/LipskiDev" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://linkedin.com/in/maximilian-lipski" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </aside>
 
-            <nav className="flex flex-wrap gap-5 pt-1 text-sm text-stone-300 md:pt-2">
-              <a href="#about" className="transition hover:text-white">About</a>
-              <a href="#projects" className="transition hover:text-white">Projects</a>
-              <a href="#resume" className="transition hover:text-white">CV</a>
-              <a href="#contact" className="transition hover:text-white">Contact</a>
-              <a href="#competencies" className="transition hover:text-white">Competencies</a>
-            </nav>
+      <main>
+        <header className="mobile-header"><a href="#top">Maximilian Lipski</a><a href="#work">Projects</a></header>
+
+        <section className="hero">
+          <p className="label">Portfolio / 2026</p>
+          <h1>Graphics<br />Programmer</h1>
+          <div className="hero-copy">
+            <p>Building rendering technology, graphics APIs, and real-time engine systems.</p>
+            <p className="availability">Computer Science master&apos;s student specializing in computer graphics, rendering systems, and game technology.</p>
           </div>
-        </header>
-
-        <section id="about" className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-4">
-            <div className="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10">
-              <img
-                src={sponzaImage}
-                alt="Sponza render"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="mt-6 grid grid-cols-2 gap-3 text-sm md:grid-cols-4">
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                <p className="text-stone-500">Focus</p>
-                <p className="mt-2 text-white">Real-time Rendering</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                <p className="text-stone-500">API</p>
-                <p className="mt-2 text-white">Vulkan</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                <p className="text-stone-500">Language</p>
-                <p className="mt-2 text-white">C++20</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                <p className="text-stone-500">Tools</p>
-                <p className="mt-2 text-white">Nsight / RenderDoc</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              About me
-            </h2>
-            <div className="mt-6 h-px w-full bg-white/10" />
-
-            <div className="mt-8 space-y-6 text-base leading-8 text-stone-300 md:text-lg">
-              <p>
-                Computer Science master's student specializing in computer graphics, rendering systems, and game technology.
-              </p>
-              <p>
-                Building graphics technology from scratch, focusing on Vulkan,
-                rendering architecture, shader workflows, debugging, profiling,
-                and engine development.
-              </p>
-              <p>
-                Particularly interested in rendering systems and shader techniques
-                that enable a game’s intended visual style, whether physically based
-                or stylized.
-              </p>
-            </div>
-          </div>
+          <figure>
+            <img src={sponzaImage} alt="Sponza scene rendered in Rodan" />
+            <figcaption><span>Rodan renderer / Sponza</span><span>Vulkan · PBR · IBL</span></figcaption>
+          </figure>
         </section>
 
-        <section className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-              Current work
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              Rendering of transparent lines using hardware-accelerated linear swept sphere primitives
-            </h2>
-          </div>
-
-          <Link
-            to="/projects/master-thesis"
-            className="group rounded-[2rem] border border-emerald-400/15 bg-emerald-400/[0.04] p-8 transition hover:-translate-y-1 hover:border-emerald-300/30 hover:bg-emerald-400/[0.07]"
-          >
-            <p className="text-lg leading-8 text-stone-200">
-              Master&apos;s thesis investigating transparent-line rendering using
-              hardware-accelerated linear swept sphere ray-tracing primitives in Vulkan.
-            </p>
-            <p className="mt-5 text-sm font-medium text-emerald-300 transition group-hover:text-emerald-200">
-              View thesis work →
-            </p>
-          </Link>
+        <section className="thesis-note">
+          <p className="label">Currently working on</p>
+          <h2>Rendering of transparent lines using hardware-accelerated linear swept sphere primitives</h2>
+          <Link to="/projects/master-thesis">Master&apos;s thesis <span>→</span></Link>
         </section>
 
-        <section id="projects" className="mt-24">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Projects
-            </h2>
-            <div className="mt-6 h-px w-full bg-white/10" />
-          </div>
-
-          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <Link
-                key={project.title}
-                to={project.route}
-                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/[0.05]"
-              >
-                <div className="aspect-[16/10] overflow-hidden border-b border-white/10 bg-stone-900">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-[0.24em] text-stone-500">
-                    {project.category}
-                  </p>
-
-                  <h3 className="mt-2 text-2xl font-semibold">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-3 text-stone-300">
-                    {project.tagline}
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="mt-6 text-sm text-stone-500 transition group-hover:text-white">
-                    View project →
-                  </p>
+        <section id="work" className="page-section work">
+          <header className="section-header"><p className="label">01 / Selected projects</p><p>Rendering systems, engine architecture, and GPU programming.</p></header>
+          <div className="project-list">
+            {projects.map((project) => (
+              <Link to={project.route} className="project" key={project.title}>
+                <div className="project-media"><img src={project.image} alt={`${project.title} project`} /></div>
+                <div className="project-info">
+                  <div className="project-title"><span>{project.id}</span><h2>{project.title}</h2><span className="arrow">↗</span></div>
+                  <p className="category">{project.category}</p>
+                  <p className="description">{project.tagline}</p>
+                  <p className="stack">{project.stack}</p>
                 </div>
               </Link>
             ))}
           </div>
         </section>
 
-        <section id="resume" className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              CV
-            </h2>
-            <div className="mt-6 h-px w-full bg-white/10" />
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8">
-            <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-              Education
-            </p>
-            <p className="mt-3 text-lg text-white">
-              M.Sc. Computer Science
-            </p>
-            <p className="mt-2 leading-8 text-stone-300">
-              Focused on computer graphics, rendering, engine systems, and GPU programming.
-            </p>
-
-<div className="mt-8 flex flex-wrap gap-3">
-  <a
-    href="/CV_Maximilian_Lipski.pdf"
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
-  >
-    View CV
-  </a>
-
-  <a
-    href="/CV_Maximilian_Lipski.pdf"
-    download="CV_Maximilian_Lipski.pdf"
-    className="inline-flex rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/5"
-  >
-    Download CV
-  </a>
-</div>
+        <section id="about" className="page-section about">
+          <header className="section-header"><p className="label">02 / About</p></header>
+          <div className="about-grid">
+            <h2>Computer Science master&apos;s student specializing in computer graphics, rendering systems, and game technology.</h2>
+            <div>
+              <p>Building graphics technology from scratch, focusing on Vulkan, rendering architecture, shader workflows, debugging, profiling, and engine development.</p>
+              <p>Particularly interested in rendering systems and shader techniques that enable a game&apos;s intended visual style, whether physically based or stylized.</p>
+            </div>
           </div>
         </section>
 
-        <section id="competencies" className="mt-24">
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Competencies
-          </h2>
-          <div className="mt-6 h-px w-full bg-white/10" />
-          <div className="mt-10 flex flex-wrap gap-3">
-            {competencies.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+        <section id="skills" className="page-section skills">
+          <header className="section-header"><p className="label">03 / Competencies</p></header>
+          <div className="skill-grid">{competencies.map((skill, index) => <div key={skill}><span>{String(index + 1).padStart(2, "0")}</span><p>{skill}</p></div>)}</div>
         </section>
 
-        <section id="contact" className="mt-24 border-t border-white/10 pt-10">
-          <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-            Contact me
-          </p>
-
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-            Let’s talk about graphics programming.
-          </h2>
-
-          <p className="mt-6 max-w-2xl text-base leading-8 text-stone-300">
-            I am interested in graphics programming, rendering engineering, and
-            engine development opportunities.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-6 text-base text-stone-200">
-            <a href="mailto:lipskidev@outlook.com" className="transition hover:text-white">
-              Email
-            </a>
-            <a href="https://github.com/LipskiDev" className="transition hover:text-white">
-              GitHub
-            </a>
-            <a href="https://linkedin.com/in/maximilian-lipski" className="transition hover:text-white">
-              LinkedIn
-            </a>
-          </div>
+        <section className="page-section cv">
+          <header className="section-header"><p className="label">CV / Education</p></header>
+          <div className="cv-row"><div><h2>M.Sc. Computer Science</h2><p>Focused on computer graphics, rendering, engine systems, and GPU programming.</p></div><div><a href="/CV_Maximilian_Lipski.pdf" target="_blank" rel="noreferrer">View CV ↗</a><a href="/CV_Maximilian_Lipski.pdf" download="CV_Maximilian_Lipski.pdf">Download ↓</a></div></div>
         </section>
 
-        <footer className="mt-20 border-t border-white/10 py-8 text-sm text-stone-500">
-          <p>© {new Date().getFullYear()} Maximilian Lipski</p>
-        </footer>
-      </div>
+        <section id="contact" className="contact">
+          <p className="label">04 / Contact</p>
+          <h2>Let&apos;s talk about<br />graphics programming.</h2>
+          <p>I am interested in graphics programming, rendering engineering, and engine development opportunities.</p>
+          <div><a href="mailto:lipskidev@outlook.com">lipskidev@outlook.com ↗</a></div>
+        </section>
+
+        <footer><span>© {new Date().getFullYear()} Maximilian Lipski</span><a href="#top">Top ↑</a></footer>
+      </main>
     </div>
   );
 }

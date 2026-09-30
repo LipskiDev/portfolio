@@ -21,50 +21,6 @@ function FeatureCard({ title, body }: { title: string; body: string }) {
   );
 }
 
-function EngineeringDecision({
-  title,
-  problem,
-  decision,
-  result,
-  href,
-  linkLabel,
-}: {
-  title: string;
-  problem: string;
-  decision: string;
-  result: string;
-  href: string;
-  linkLabel: string;
-}) {
-  return (
-    <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
-      <h3 className="text-xl font-semibold text-white">{title}</h3>
-      <dl className="mt-6 space-y-5 text-sm leading-7 md:text-base">
-        <div>
-          <dt className="font-medium text-stone-100">Problem</dt>
-          <dd className="text-stone-400">{problem}</dd>
-        </div>
-        <div>
-          <dt className="font-medium text-stone-100">Design decision</dt>
-          <dd className="text-stone-400">{decision}</dd>
-        </div>
-        <div>
-          <dt className="font-medium text-stone-100">Trade-off / result</dt>
-          <dd className="text-stone-400">{result}</dd>
-        </div>
-      </dl>
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-6 inline-flex text-sm font-medium text-emerald-300 transition hover:text-emerald-200"
-      >
-        {linkLabel} →
-      </a>
-    </article>
-  );
-}
-
 function RenderPassNode({
   title,
   body,
@@ -274,48 +230,6 @@ export default function Rodan() {
                 body={feature.body}
               />
             ))}
-          </div>
-        </section>
-
-        <section className="mt-24">
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Engineering decisions
-          </h2>
-          <div className="mt-6 h-px bg-white/10" />
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <EngineeringDecision
-              title="Shader reflection"
-              problem="Keeping shader resource declarations and Vulkan layouts in sync by hand is repetitive and easy to break as shaders evolve."
-              decision="Velos reflects compiled SPIR-V, merges resources across shader stages, and builds descriptor-set and pipeline layouts from that interface. Explicit overrides support shared or runtime-sized layouts."
-              result="Shader interfaces become the source of truth. The added validation and reflection work reduces duplicated binding metadata and catches incompatible layouts early."
-              href="https://github.com/LipskiDev/velos/blob/main/velos/shader/shader_compiler.cpp"
-              linkLabel="View shader reflection"
-            />
-            <EngineeringDecision
-              title="Transfer-queue uploads"
-              problem="Texture and mesh uploads should not force all copy work through the graphics queue or expose resources before ownership and layout transitions are complete."
-              decision="Velos uses an upload context with staging buffers, prefers a dedicated transfer queue, and records pending image acquires for the graphics queue."
-              result="Uploads stay behind an RHI-level contract and can use dedicated hardware when available; explicit queue-family ownership makes the synchronization cost visible."
-              href="https://github.com/LipskiDev/velos/blob/main/velos/rhi/vulkan/upload_context.cpp"
-              linkLabel="View upload implementation"
-            />
-            <EngineeringDecision
-              title="glTF material loading"
-              problem="Real assets combine geometry, texture transforms, fallback values, and extensions such as transmission and volume."
-              decision="Rodan separates CPU-side glTF parsing from GPU resource construction, then uploads combined mesh buffers and builds per-material bindings with fallback textures."
-              result="The importer remains understandable and supports richer PBR assets, while the explicit material bindings currently cost more descriptors than a fully bindless path."
-              href="https://github.com/LipskiDev/Rodan/blob/main/engine/assets/gltf_asset_loader.cpp"
-              linkLabel="View glTF asset loading"
-            />
-            <EngineeringDecision
-              title="Renderer / RHI separation"
-              problem="Scene, material, and render-pass code should not depend directly on Vulkan objects, but the abstraction must preserve explicit GPU control."
-              decision="Rodan owns high-level rendering and scene systems; Velos owns buffers, images, pipelines, descriptors, command submission, and synchronization behind backend-independent interfaces."
-              result="The Vulkan backend can evolve independently and Rodan stays focused on rendering features. The boundary adds API design work but prevents backend details from spreading through the engine."
-              href="https://github.com/LipskiDev/velos/blob/main/velos/rhi/device.h"
-              linkLabel="View the RHI interface"
-            />
           </div>
         </section>
 

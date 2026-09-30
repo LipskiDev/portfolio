@@ -35,16 +35,36 @@ export const projects = {
     ],
   },
 
-  "procedural-shader-framework": {
-    title: "Procedural Shader Framework",
-    category: "Unreal Engine",
+  iryven: {
+    title: "Iryven",
+    category: "3D Game Engine",
     intro:
-      "A planned Unreal Engine framework for procedural, ShaderToy-like graphics workflows.",
-    stack: ["Unreal Engine", "HLSL", "Materials", "Procedural Graphics"],
+      "Iryven is my C++20 3D game engine for building interactive worlds and real-time rendering experiences. Built on my Velos rendering hardware interface, it brings together Vulkan rendering, scene simulation, asset loading, and editor tooling.",
+    stack: ["C++20", "Vulkan", "Velos RHI", "Flecs", "ImGui", "GLSL"],
     sections: [
       {
-        title: "Goal",
-        body: "The goal is to create reusable shader building blocks for procedural effects and graphics experimentation inside Unreal Engine.",
+        title: "Meshlet rendering",
+        body: "Meshes are partitioned into small groups of triangles with meshoptimizer and rendered through a Vulkan mesh shader. A meshlet color view makes those groups visible across the scene.",
+      },
+      {
+        title: "World and simulation",
+        body: "A Flecs entity-component system stores scene state, including transforms, cameras, lights, and mesh renderers. A Box3D integration connects rigid bodies and colliders to the world simulation.",
+      },
+      {
+        title: "Asset pipeline",
+        body: "OBJ and glTF importers feed the engine’s asset system. Asynchronous loading uses enkiTS workers, with GPU uploads handled through a dedicated upload queue.",
+      },
+      {
+        title: "Render scheduling",
+        body: "A frame graph organizes rendering passes and resources, including resource transitions and queue synchronization. The renderer manages GPU state through Velos and its Vulkan backend.",
+      },
+      {
+        title: "Scene editor",
+        body: "An ImGui editor provides entity selection, transform and light inspection, and a fly camera. Scenes can be saved to JSON, while play mode snapshots and restores the scene when stopped.",
+      },
+      {
+        title: "Application layers",
+        body: "Sandbox and Editor build on the same public engine API. Layers extend application behavior while the engine owns the main loop, input, windowing, and optional ImGui lifecycle.",
       },
     ],
   },
