@@ -5,10 +5,13 @@ import sponzaImage from "./assets/optimized/sponza.webp";
 import iryvenImage from "./assets/optimized/san miguel 2.webp";
 import velosTestsImage from "./assets/optimized/velos tests.webp";
 
+import pathTracerImage from "./assets/optimized/nvrhi-pt.webp";
+
 const projects = [
   { id: "01", title: "Iryven", image: iryvenImage, category: "3D Game Engine", tagline: "A C++ engine combining meshlet rendering, scene simulation, and editor tooling.", stack: "C++20 · Vulkan · D3D12 · Mesh Shaders · Engine Development", route: "/projects/iryven" },
   { id: "02", title: "Rodan", image: abeautifulgameImage, category: "Render Engine", tagline: "A renderer and runtime layer built on top of my custom RHI.", stack: "C++ · Vulkan · D3D12 · ImGui · Rendering Engine", route: "/projects/rodan" },
   { id: "03", title: "Velos", image: velosTestsImage, category: "RHI", tagline: "A modern explicit rendering abstraction with a Vulkan and Direct3D 12 backend.", stack: "C++20 · Vulkan · Direct3D 12 · Shader Reflection · RHI", route: "/projects/velos" },
+  { id: "04", title: "NVRHI Path Tracer", image: pathTracerImage, category: "Path Tracing", tagline: "A simple path tracer I built using NVIDIA’s NVRHI rendering hardware interface.", stack: "NVRHI · Path Tracing", route: "/projects/nvrhi-pt" },
 ];
 
 const competencies = ["C++", "Vulkan", "D3D12", "OpenGL", "GLSL", "HLSL", "Unreal Engine", "Rendering Architecture", "GPU Programming", "Real-Time Rendering", "Debugging & Profiling", "Engine Development"];

@@ -4,6 +4,7 @@ const projectLinks = [
   { path: "/projects/iryven", title: "Iryven" },
   { path: "/projects/rodan", title: "Rodan" },
   { path: "/projects/velos", title: "Velos" },
+  { path: "/projects/nvrhi-pt", title: "NVRHI Path Tracer" },
   { path: "/projects/master-thesis", title: "Master’s thesis" },
 ];
 
