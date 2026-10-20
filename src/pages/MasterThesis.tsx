@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import thesisFilteredImage from "../assets/thesis-lss.png";
-import thesisOverlappingCapsImage from "../assets/thesis-spheres.png";
+import thesisFilteredImage from "../assets/optimized/thesis-lss.webp";
+import thesisOverlappingCapsImage from "../assets/optimized/thesis-spheres.webp";
 
 function HitFilteringComparison() {
   const [position, setPosition] = useState(50);

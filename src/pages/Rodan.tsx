@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import sponzaImage from "../assets/sponza.png";
-import chessImage from "../assets/abeautifulgame.png";
+import sponzaImage from "../assets/optimized/sponza.webp";
+import chessImage from "../assets/optimized/abeautifulgame.webp";
 import renderVideo from "../assets/render-web.mp4";
 
 function Tag({ children }: { children: string }) {
@@ -201,7 +201,7 @@ export default function Rodan() {
 
 <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
 <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02] p-4 transition hover:border-white/20">
-  <img
+  <img loading="lazy" decoding="async" width={1600} height={900}
     src={sponzaImage}
     alt="Sponza scene rendered in Rodan"
     className="aspect-[16/9] w-full rounded-[1.5rem] object-cover transition duration-300 hover:scale-[1.02]"
@@ -209,7 +209,7 @@ export default function Rodan() {
 </div>
 
 <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02] p-4 transition hover:border-white/20">
-  <img
+  <img loading="lazy" decoding="async" width={1600} height={900}
     src={chessImage}
     alt="Chess scene rendered in Rodan"
     className="aspect-[16/9] w-full rounded-[1.5rem] object-cover transition duration-300 hover:scale-[1.02]"

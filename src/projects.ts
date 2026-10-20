@@ -39,12 +39,16 @@ export const projects = {
     title: "Iryven",
     category: "3D Game Engine",
     intro:
-      "Iryven is my C++20 3D game engine for building interactive worlds and real-time rendering experiences. Built on my Velos rendering hardware interface, it brings together Vulkan rendering, scene simulation, asset loading, and editor tooling.",
-    stack: ["C++20", "Vulkan", "Velos RHI", "Flecs", "ImGui", "GLSL"],
+      "Iryven is my C++20 3D game engine for building interactive worlds and real-time rendering experiences. Built on my Velos rendering hardware interface, it combines a deferred renderer for Vulkan and Direct3D 12 with scene simulation, asynchronous asset loading, and an ImGui editor.",
+    stack: ["C++20", "Vulkan", "Direct3D 12", "HLSL", "Velos RHI", "Flecs", "ImGui"],
     sections: [
       {
         title: "Meshlet rendering",
-        body: "Meshes are partitioned into small groups of triangles with meshoptimizer and rendered through a Vulkan mesh shader. A meshlet color view makes those groups visible across the scene.",
+        body: "Meshes are partitioned into meshlets with meshoptimizer. The Vulkan path uses task and mesh shaders, with Hi-Z depth-pyramid reduction on the compute queue. A frozen culling camera and meshlet color view help inspect visibility and geometry.",
+      },
+      {
+        title: "Deferred Clustered Lighting",
+        body: "The scene is rendered into a G-Buffer which is split up into a BaseColorMetallic, NormalRoughness, EmissiveOcclusion and Specular buffer. The shading is later computed in a clustered manner to support up to 512 unique lightsources."
       },
       {
         title: "World and simulation",
@@ -56,15 +60,11 @@ export const projects = {
       },
       {
         title: "Render scheduling",
-        body: "A frame graph organizes rendering passes and resources, including resource transitions and queue synchronization. The renderer manages GPU state through Velos and its Vulkan backend.",
+        body: "A frame graph organizes rendering passes, resource transitions, and queue synchronization. The deferred renderer runs on Vulkan and Direct3D 12 through Velos, with HLSL shader stages shared across the backends.",
       },
       {
         title: "Scene editor",
-        body: "An ImGui editor provides entity selection, transform and light inspection, and a fly camera. Scenes can be saved to JSON, while play mode snapshots and restores the scene when stopped.",
-      },
-      {
-        title: "Application layers",
-        body: "Sandbox and Editor build on the same public engine API. Layers extend application behavior while the engine owns the main loop, input, windowing, and optional ImGui lifecycle.",
+        body: "An ImGui editor provides entity selection, transform and light editing, an adjustable fly camera, and an asset browser for model import and assignment. Scenes save to JSON; play mode snapshots the scene and restores it when stopped.",
       },
     ],
   },

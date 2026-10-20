@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 
-import abeautifulgameImage from "./assets/abeautifulgame.png";
-import sponzaImage from "./assets/sponza.png";
-import iryvenImage from "./assets/iryven.png";
-import velosTestsImage from "./assets/velos tests.png";
+import abeautifulgameImage from "./assets/optimized/abeautifulgame.webp";
+import sponzaImage from "./assets/optimized/sponza.webp";
+import iryvenImage from "./assets/optimized/san miguel 2.webp";
+import velosTestsImage from "./assets/optimized/velos tests.webp";
 
 const projects = [
-  { id: "01", title: "Rodan", image: abeautifulgameImage, category: "Render Engine", tagline: "A renderer and runtime layer built on top of my custom RHI.", stack: "C++ · Vulkan · ImGui · Rendering Engine", route: "/projects/rodan" },
-  { id: "02", title: "Velos", image: velosTestsImage, category: "Vulkan RHI", tagline: "A modern explicit rendering abstraction with a Vulkan backend.", stack: "C++20 · Vulkan · Shader Reflection · RHI", route: "/projects/velos" },
-  { id: "03", title: "Iryven", image: iryvenImage, category: "3D Game Engine", tagline: "A C++ engine combining Vulkan meshlet rendering, scene simulation, and editor tooling.", stack: "C++20 · Vulkan · Mesh Shaders · Engine Development", route: "/projects/iryven" },
+  { id: "01", title: "Iryven", image: iryvenImage, category: "3D Game Engine", tagline: "A C++ engine combining meshlet rendering, scene simulation, and editor tooling.", stack: "C++20 · Vulkan · D3D12 · Mesh Shaders · Engine Development", route: "/projects/iryven" },
+  { id: "02", title: "Rodan", image: abeautifulgameImage, category: "Render Engine", tagline: "A renderer and runtime layer built on top of my custom RHI.", stack: "C++ · Vulkan · D3D12 · ImGui · Rendering Engine", route: "/projects/rodan" },
+  { id: "03", title: "Velos", image: velosTestsImage, category: "RHI", tagline: "A modern explicit rendering abstraction with a Vulkan and Direct3D 12 backend.", stack: "C++20 · Vulkan · Direct3D 12 · Shader Reflection · RHI", route: "/projects/velos" },
 ];
 
-const competencies = ["C++", "Vulkan", "OpenGL", "GLSL", "Unreal Engine", "Rendering Architecture", "GPU Programming", "Real-Time Rendering", "Debugging & Profiling", "Engine Development"];
+const competencies = ["C++", "Vulkan", "D3D12", "OpenGL", "GLSL", "HLSL", "Unreal Engine", "Rendering Architecture", "GPU Programming", "Real-Time Rendering", "Debugging & Profiling", "Engine Development"];
 
 export default function App() {
   return (
@@ -45,7 +45,7 @@ export default function App() {
             <p className="availability">Computer Science master&apos;s student specializing in computer graphics, rendering systems, and game technology.</p>
           </div>
           <figure>
-            <img src={sponzaImage} alt="Sponza scene rendered in Rodan" />
+            <img fetchPriority="high" decoding="async" width={1600} height={850} src={sponzaImage} alt="Sponza scene rendered in Rodan" />
             <figcaption><span>Rodan renderer / Sponza</span><span>Vulkan · PBR · IBL</span></figcaption>
           </figure>
         </section>
@@ -61,7 +61,7 @@ export default function App() {
           <div className="project-list">
             {projects.map((project) => (
               <Link to={project.route} className="project" key={project.title}>
-                <div className="project-media"><img src={project.image} alt={`${project.title} project`} /></div>
+                <div className="project-media"><img loading="lazy" decoding="async" width={800} height={500} src={project.image} alt={`${project.title} project`} /></div>
                 <div className="project-info">
                   <div className="project-title"><span>{project.id}</span><h2>{project.title}</h2><span className="arrow">↗</span></div>
                   <p className="category">{project.category}</p>
@@ -106,3 +106,4 @@ export default function App() {
     </div>
   );
 }
+

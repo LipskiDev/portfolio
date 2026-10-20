@@ -90,14 +90,15 @@ export default function Velos() {
     "C++23",
     "Rendering Hardware Interface",
     "Vulkan Backend",
-    "SPIR-V Reflection",
+    "Direct3D 12 Backend",
+    "SPIR-V and DXIL Reflection",
     "Engine Architecture",
   ];
 
   const features = [
     {
       title: "Backend-independent API",
-      body: "Rendering code is written against a common interface instead of directly against Vulkan.",
+      body: "Rendering code is written against a common interface instead of directly against Vulkan or D3D12.",
     },
     {
       title: "Pipeline Abstraction",
@@ -109,7 +110,7 @@ export default function Velos() {
     },
     {
       title: "Shader Reflection",
-      body: "Automatic SPIR-V reflection is used for descriptor set and pipeline layout generation.",
+      body: "Automatic SPIR-V and DXIL reflection is used for descriptor set and pipeline layout generation.",
     },
     {
       title: "Command Lists",
@@ -122,7 +123,6 @@ export default function Velos() {
   ];
 
   const futureWork = [
-    "Direct3D 12 backend",
     "WebGPU backend",
     "Render graph integration",
     "Improved resource lifetime tracking",
@@ -153,9 +153,8 @@ export default function Velos() {
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-300">
               Velos is my custom Rendering Hardware Interface (RHI). It
               abstracts modern graphics APIs behind a backend-independent
-              interface while currently providing a Vulkan implementation. Its
-              goal is to separate engine code from API-specific details and
-              enable future backends such as Direct3D 12 and WebGPU.
+              interface while currently providing a Vulkan and Direct3D 12 implementation. Its
+              goal is to separate engine code from API-specific details.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -247,7 +246,7 @@ export default function Velos() {
                   <Arrow>↙</Arrow>
                   <div className="mt-4 w-full">
                     <ArchitectureNode
-                      eyebrow="Current Backend"
+                      eyebrow="Supported Backend"
                       title="Vulkan"
                       tone="orange"
                     />
@@ -258,12 +257,9 @@ export default function Velos() {
                   <Arrow>↓</Arrow>
                   <div className="mt-4 w-full">
                     <ArchitectureNode
-                      eyebrow="Future Backend"
+                      eyebrow="Supported Backend"
                       title="Direct3D 12"
-                      subtitle="planned"
                       tone="cyan"
-                      dashed
-                      muted
                     />
                   </div>
                 </div>
